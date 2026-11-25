@@ -155,3 +155,16 @@ footer {
     padding: 18px;
   }
 }
+
+
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 360px;
+}
+
+@media (max-width: 650px) {
+  .chart-container {
+    height: 280px;
+  }
+}
