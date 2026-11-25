@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Newton-Raphson Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Newton-Raphson Calculator</h1>
+      <p>Find a root of a function using the Newton-Raphson method.</p>
+    </header>
+
+    <section class="card">
+      <form id="calculator-form">
+        <label for="function">Function f(x)</label>
+        <input id="function" type="text" value="x^2 - 2" placeholder="Example: x^2 - 2" required>
+        <small>Use x as the variable. Examples: x^2 - 2, cos(x) - x, x^3 + 2*x - 5</small>
+
+        <div class="fields">
+          <div>
+            <label for="x0">Initial value (X₀)</label>
+            <input id="x0" type="number" step="any" value="2" required>
+          </div>
+          <div>
+            <label for="tolerance">Tolerance</label>
+            <input id="tolerance" type="number" step="any" value="0.000001" min="0" required>
+          </div>
+          <div>
+            <label for="max-iterations">Max iterations</label>
+            <input id="max-iterations" type="number" value="100" min="1" max="1000" required>
+          </div>
+        </div>
+
+        <button type="submit">Calculate</button>
+      </form>
+      <div id="message" class="message" role="status"></div>
+    </section>
+
+    <section id="result-section" class="card hidden">
+      <h2>Result</h2>
+      <p id="root-result" class="root-result"></p>
+      <p id="status-result" class="muted"></p>
+      <h2>Iterations</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Iteration</th>
+              <th>Xᵢ</th>
+              <th>f(Xᵢ)</th>
+              <th>f′(Xᵢ) approx.</th>
+              <th>Xᵢ₊₁</th>
+            </tr>
+          </thead>
+          <tbody id="results-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      x<sub>i+1</sub> = x<sub>i</sub> − f(x<sub>i</sub>) / f′(x<sub>i</sub>)
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
